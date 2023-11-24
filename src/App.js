@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './App.css'; // Assuming you have a CSS file for styling
 
-const backendUrl = 'http://localhost:8000'; // Adjust according to your backend URL
+const backendUrl = 'https://vois-nine.vercel.app'; // Adjust according to your backend URL
 
 function App() {
   const [userInput, setUserInput] = useState('');
@@ -30,7 +30,7 @@ function App() {
     setIsLoading(true);
     try {
       const response = await axios.get(`${backendUrl}/initialize/`);
-      speak(response.data.initial_question);
+      await speak(response.data.initial_question); // Use 'await' here to ensure it's spoken before proceeding
     } catch (error) {
       console.error('Error during initialization:', error);
       setError('Failed to initialize conversation.');
@@ -47,7 +47,7 @@ function App() {
     const response = await axios.post(`${backendUrl}/user_message/`, { user_message: inputText });
     const newBotMessage = { sender: 'bot', text: response.data.bot_response };
     setMessages(messages => [...messages, newUserMessage, newBotMessage]);
-    
+
     // Always speak the bot's response
     speak(response.data.bot_response);
   } catch (error) {
