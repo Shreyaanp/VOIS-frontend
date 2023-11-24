@@ -1,0 +1,137 @@
+.App {
+  text-align: center;
+}/* Color Scheme */
+:root {
+  --background-color: rgb(241, 229, 229); /* Light Gray for Background */
+  --text-area-color: #e2d3d3; /* White for Text Area */
+  --message-color: #333333; /* Dark Gray for Messages */
+  --button-color: rgb(95, 160, 218); /* Blue for Buttons */
+}
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+  margin: 2rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Speech recognition buttons */
+button {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  background-color: var(--button-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+div > button:last-child {
+  margin-top: 1rem;
+  background-color: var(--button-color);
+}
+
+.chat-window {
+  border-radius: 8px;
+  min-height: 500px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin: 10px auto;
+  width: 100%;
+  background-color: var(--text-area-color); /* Apply Text Area Color */
+}
+
+.user-message, .bot-message {
+  min-height: 16px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  margin-bottom: 5px;
+  max-width: 80%;
+  word-break: break-word;
+  background-color: var(--button-color); /* Apply Message Color */
+  color: #fff;
+}
+.input-container {
+
+  align-items: center;
+  margin-top: 10px;
+
+}
+
+.user-message {
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.bot-message {
+  background-color: #333333; /* Apply Text Area Color */
+  color: #fff; /* Apply Message Color */
+  align-self: flex-start;
+  margin-right: auto;
+}
+
+.interim-message {
+  background-color: var(--button-color); /* Apply Message Color */
+  padding: 10px 15px;
+  border-radius: 20px;
+  margin-bottom: 5px;
+  max-width: 80%;
+  word-break: break-word;
+  color: #fff;
+  align-self: flex-end;
+  margin-left: auto;
+  min-height: 14px;
+}
+.content {
+  display: flex;
+}
+
+.left-panel {
+  width: 60%;
+}
+
+.right-panel {
+  width: 40%;
+  /* Add any additional styling you want for the right panel here */
+}
+/* CSS */
+.action-button {
+  background-color: var(--button-color); /* Apply Button Color */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Add smooth transition */
+}
+
+.action-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.action-button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+.input-container {
+
+  align-items: center;
+  margin-top: 10px;
+}
