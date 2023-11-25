@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './App.css'; // Assuming you have a CSS file for styling
 
-const backendUrl = ' http://127.0.0.1:8000'; // Adjust according to your backend URL
+const backendUrl = 'https://vois-nine.vercel.app/'; // Adjust according to your backend URL
 
 function App() {
   const [userInput, setUserInput] = useState('');
@@ -12,7 +12,8 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const messagesEndRef = useRef(null);
-  const [canSpeak, setCanSpeak] = useState(false);
+  const [canSpeak, setCanSpeak] = useState(true);
+
   const [interimInput, setInterimInput] = useState('');
 
 
