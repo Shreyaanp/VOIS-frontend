@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './App.css'; // Assuming you have a CSS file for styling
 
-const backendUrl = 'https://vois-nine.vercel.app'; // Adjust according to your backend URL
+const backendUrl = ' http://127.0.0.1:8000'; // Adjust according to your backend URL
 
 function App() {
   const [userInput, setUserInput] = useState('');
@@ -14,9 +14,7 @@ function App() {
   const messagesEndRef = useRef(null);
   const [canSpeak, setCanSpeak] = useState(false);
   const [interimInput, setInterimInput] = useState('');
-  useEffect(() => {
-    initializeConversation();
-  }, []);
+
 
   useEffect(() => {
     scrollToBottom();
@@ -26,17 +24,6 @@ function App() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const initializeConversation = async () => {
-    setIsLoading(true);
-    try {
-      const response = await axios.get(`${backendUrl}/initialize/`);
-      await speak(response.data.initial_question); // Use 'await' here to ensure it's spoken before proceeding
-    } catch (error) {
-      console.error('Error during initialization:', error);
-      setError('Failed to initialize conversation.');
-    }
-    setIsLoading(false);
-  };
 
   const handleUserInput = async (inputText = userInput) => {
   if (!inputText) return;
@@ -55,8 +42,6 @@ function App() {
     setError('Failed to send message.');
   }
 
-  setUserInput('');
-  setInterimInput(''); // Clear interim input on final processing
   setIsLoading(false);
   };
 
@@ -87,7 +72,7 @@ function App() {
       if (event.results[current].isFinal) {
         // If the result is final, process it (send to bot, display in chat, etc.)
         setIsListening(false);
-        handleUserInput(transcript); // You might need to modify handleUserInput to accept an argument
+        handleUserInput(transcript);
       }
       recognition.onresult = (event) => {
         const current = event.resultIndex;
