@@ -98,6 +98,10 @@ function App() {
 
         <div className="right-panel">
           <div className="chat-window">
+            <h2>Chat Window</h2>
+            <text
+              style={{ color: 'grey', fontStyle: 'italic' }}
+            >Please start the conversation with Greeting customer :</text>
             {messages.map((msg, index) => (
               <p key={index} className={`${msg.sender === 'user' ? 'user-message' : 'bot-message'} message-enter`}>
                 {msg.text}
