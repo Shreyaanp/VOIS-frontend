@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './App.css'; // Assuming you have a CSS file for styling
 
-const backendUrl = 'https://vois-nine.vercel.app/'; // Adjust according to your backend URL
+const backendUrl = 'https://vois-nine.vercel.app'; // Adjust according to your backend URL
 
 function App() {
   const [userInput, setUserInput] = useState('');
